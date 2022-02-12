@@ -62,3 +62,19 @@ curl https://proxy.freecdn.workers.dev/?url=https://raw.githubusercontent.com/ba
 ## 引用声明
 
 对于 Cloudflare Anycast 节点汇总，定期扫描 Cloudflare 公开节点汇总而来，Cloudflare IP Ranges 来自 https://www.cloudflare.com/zh-cn/ips/
+
+Cloudflare反向代理脚本：
+
+addEventListener(
+	"fetch",event => {
+		let url=new URL(event.request.url);
+		url.hostname="域名";
+		let request=new Request(url,event.request);
+		event. respondWith(
+			fetch(request)
+		)
+	}
+)
+
+
+
